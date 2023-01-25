@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Nav Bar</title>
+    <script src="https://kit.fontawesome.com/e9eb73dcf6.js" crossorigin="anonymous"></script>
+    <style>
+            body {
+                font-family: 'Aboreto', cursive;
+                margin: 0px;
+            }
+
+            .nav-bar {
+                background-color: black;
+                
+            }
+
+            .nav-bar div {
+                display: none;
+            }
+
+            .nav-bar .toggle,
+            .nav-bar .brand {
+                display: inline-block;
+            }
+
+            .nav-bar .link {
+                display: block;
+                text-align: center;
+                padding: 1em;
+                text-decoration: none;
+                background: magenta;
+                color: black;
+            }
+
+            .nav-bar .link:hover,
+            .nav-bar .link:active {
+                color: black;
+                background: purple;
+            }
+
+            .nav-bar .brand {
+                color: white;
+                width: 10em;
+                padding: 1em;
+                text-align: center;
+            }
+
+            .nav-bar a {
+                text-decoration: none;
+            }
+
+            .nav-bar .toggle {
+                padding: 1em;
+                color: magenta;
+            }
+
+        @media (min-width: 48em) {
+            .nav-bar {
+                display: flex;
+            }
+
+            .nav-bar .nav-left,
+            .nav-bar .nav-right {
+                display: flex;
+                flex: 1;
+            }
+
+            .nav-bar .link {
+                width: auto;
+            }
+
+            .nav-bar .nav-right {
+                justify-content: flex-end;
+            }
+
+            .nav-bar .toggle {
+                display: none;
+            }
+        }
+
+        @media (min-width: 48em) {
+            .nav-bar div {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 48em) {
+            .nav-bar.active .toggle {
+                background: magenta;
+                color: black;
+            }
+
+            .nav-bar .brand {
+                text-align: left;
+            }
+
+            .nav-bar.active div {
+                display: block;
+            }
+        }
+            
+    </style>
+    
+</head>
+<body>
+    <div class="nav-bar">
+        <a href="#" class="toggle" id="nav-hamburger">
+            <i class="fa-solid fa-bars"></i>
+        </a>
+        <a href="#" class="brand">Zach White</a>
+
+        <div class="nav-left">
+            <a href="#" class="link">link1</a>
+            <a href="#" class="link">link2</a>
+        </div>
+
+        <div class="nav-right">
+            <a href="#" class="link">link3</a>
+        </div>
+    </div>
+</body>
+<script>
+        let navHamburger = document.querySelector('#nav-hamburger');
+        navHamburger.addEventListener('click', (e) => {
+            navHamburger.parentElement.classList.toggle('active');
+        })
+</script>
+</html>
